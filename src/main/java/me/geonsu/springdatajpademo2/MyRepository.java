@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 @NoRepositoryBean
 public interface MyRepository<T, ID extends Serializable> extends JpaRepository<T, ID> {
-
+// JpaRepository를 그대로 쓰지 않고, 상속 받아서 기능을 추가해서 MyRepository라는 걸 만들어서 사용
     // 어떤 entity가 persistent 상태에 들어있는지 확인하는
     boolean contains(T entity);
 }
