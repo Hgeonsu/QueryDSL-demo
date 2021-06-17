@@ -2,6 +2,6 @@ package me.geonsu.springdatajpademo2.post;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface PostRepository extends JpaRepository<Post, Long>, PostCustomRepository {
+public interface PostRepository extends JpaRepository<Post, Long>, PostCustomRepository<Post> {
 
 }

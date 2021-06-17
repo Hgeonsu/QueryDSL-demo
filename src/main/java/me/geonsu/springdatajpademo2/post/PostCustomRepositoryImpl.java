@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 @Transactional
-public class PostCustomRepositoryImpl implements PostCustomRepository {
+public class PostCustomRepositoryImpl implements PostCustomRepository<Post> {
 
     @Autowired
     EntityManager entityManager;
@@ -21,5 +21,11 @@ public class PostCustomRepositoryImpl implements PostCustomRepository {
         // JPQL
         return entityManager.createQuery("SELECT p FROM Post AS p", Post.class)
                 .getResultList();
+    }
+
+    @Override
+    public void delete(Post entity) {
+        System.out.println("custom delete");
+        entityManager.remove(entity);
     }
 }
