@@ -25,7 +25,11 @@ public class PostRepositoryTest {
         postRepository.save(post);
 
         Predicate predicate = QPost.post.title.containsIgnoreCase("hi");
-        Optional<Post> one = postRepository.findOne(predicate);
-        assertThat(one).isNotEmpty();
+        Optional<Post> one = postRepository.findOne(predicate); // findOne을 사용한 결과는 Optional로 나온다
+        boolean contains = postRepository.contains(post);
+
+        assertTrue(contains);
+        //assertThat(one).isNotEmpty();
+        assertTrue(one.isPresent()); // 위와 같은 동작
     }
 }
